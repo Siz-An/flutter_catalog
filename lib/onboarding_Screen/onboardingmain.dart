@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../Customs/navbar.dart';
 import 'board1.dart';
 import 'board2.dart';
-import 'board3.dart';// Import MainNavigation screen
+import 'board3.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           width: 10,
           height: 10,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
+            shape: BoxShape.rectangle,
             color: _currentPage == index ? Colors.blue : Colors.grey,
           ),
         );
@@ -58,14 +58,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // Dots Indicator at the top left
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: _buildDotsIndicator(),
-            ),
-          ),
           Expanded(
             child: PageView(
               controller: _pageController,
@@ -78,13 +70,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              onPressed: _goToNextPage,
-              child: Text(_currentPage == 2 ? 'Get Started' : 'Next'),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildDotsIndicator(),
+                ElevatedButton(
+                  onPressed: _goToNextPage,
+                  child: Text(_currentPage == 2 ? 'Get Started' : 'Next'),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 2),
         ],
       ),
     );

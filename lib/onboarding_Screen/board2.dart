@@ -14,7 +14,7 @@ class OnboardingPageTwo extends StatelessWidget {
               // Flutter logo at the top
               Container(
                 width: 100,
-                height: 100,
+                height: 200,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.blueAccent,
@@ -25,7 +25,7 @@ class OnboardingPageTwo extends StatelessWidget {
                   size: 60,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: .5),
 
               // Main Title
               Text(

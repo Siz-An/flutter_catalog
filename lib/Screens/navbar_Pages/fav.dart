@@ -10,12 +10,11 @@ class ChatBot extends StatefulWidget {
 class _ChatBotState extends State<ChatBot> {
   final TextEditingController _controller = TextEditingController();
   final List<String> _messages = [];
-  final String apiKey = 'sk-522b301e3ae0d0c9d7d2faa1687fc3d7c3bf8134df8a3371'; // Replace with your Notd AI API key
+  final String apiKey = 'YOUR_SECURE_API_KEY'; // Replace with a securely stored API key
 
   // Function to call Notd AI API
   Future<String> _getResponseFromNotdAI(String query) async {
-    // Replace with the correct Notd AI endpoint URL
-    final url = Uri.parse('https://api.notdiamond.ai/v1/chat');
+    final url = Uri.parse('https://api.notdiamond.ai/v1/chat'); // Confirm endpoint in Notd AI docs
 
     final headers = {
       'Authorization': 'Bearer $apiKey',
@@ -23,7 +22,7 @@ class _ChatBotState extends State<ChatBot> {
     };
 
     final body = json.encode({
-      'model': 'your-model-name', // Replace with the model name if required by Notd AI
+      'model': 'your-model-name', // Replace with the correct model name if required by Notd AI
       'messages': [
         {'role': 'user', 'content': query},
       ],
@@ -31,14 +30,11 @@ class _ChatBotState extends State<ChatBot> {
 
     try {
       final response = await http.post(url, headers: headers, body: body);
-      print('Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
-
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         return data['choices'][0]['message']['content'] ?? 'No response found.';
       } else {
-        return 'Error: Unable to fetch response from Notd AI API. Status code: ${response.statusCode}';
+        return 'Error: Unable to fetch response. Status code: ${response.statusCode}';
       }
     } catch (e) {
       print('Exception: $e');

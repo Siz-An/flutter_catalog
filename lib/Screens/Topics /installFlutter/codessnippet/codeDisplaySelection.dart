@@ -15,7 +15,7 @@ class CodeDisplayPageSelection extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Code Install Flutter on macOS',
+        title: 'Selection Platform Code',
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(

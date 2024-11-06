@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../HomeCategory/CategoryCard.dart';
 import '../HomeCategory/layouts.dart';
-import '../HomeCategory/widgets.dart';
+import '../HomeCategory/widgets/widgets.dart';
+import '../Topics /advdart/selection.dart';
 import '../Topics /basicOfDart/basic.dart';
-import '../Topics /installFlutter/installFlutter.dart';
+import '../Topics /getStartedwithflutter/runflutter.dart';
 import '../Topics /installFlutter/selection.dart';
 import '../Topics /topicCard.dart';
 
@@ -78,21 +79,26 @@ class HomePage extends StatelessWidget {
                     onTap: () => Get.to(() => SelectPlatformPage()), // Navigate to Introduction Page
                   ),
                   TopicCard(
-                    title: '2. Dart Basics Introduction',
+                    title: '2. Dart Introduction',
                     onTap: () => Get.to(() => BasicOfDart()), // Navigate to State Management Page
                   ),
                   TopicCard(
-                    title: '3. Flutter Widgets Overview',
-                    onTap: () {
-                      // Navigate to a specific page for this topic
-                    },
+                    title: '3. Basic Of Dart Programming',
+                    onTap: () => Get.to(() => SelectionScreen()),
                   ),
                   TopicCard(
-                    title: '4. Building Layouts in Flutter',
-                    onTap: () {
-                      // Navigate to a specific page for this topic
-                    },
+                    title: '4. Get Started With Flutter',
+                    onTap: () => Get.to(() => GetStartedWithFlutter()),
                   ),
+                  TopicCard(
+                    title: '5. Flutter Widgets',
+                    onTap: () => Get.to(() => WidgetsPage()),
+                  ),
+                  TopicCard(
+                    title: '6. Basic Of Dart Programming',
+                    onTap: () => Get.to(() => SelectionScreen()),
+                  ),
+
                   // Add more topics as needed
                 ],
               ),

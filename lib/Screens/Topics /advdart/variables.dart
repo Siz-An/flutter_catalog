@@ -1,50 +1,52 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../Customs/appbar.dart';
+import '../installFlutter/codessnippet/codeDisplayWindows.dart';
 
-class BasicOfDart extends StatelessWidget {
-  const BasicOfDart({super.key});
+class variables extends StatelessWidget {
+  const variables({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Dart Basics Introduction',
+        title: 'Dart Variables Tutorial',
+        icon: Icons.code,
+        onIconPressed: () {
+          Get.to(() => CodeDisplayPageWindows());
+        },
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double fontSize = constraints.maxWidth < 600 ? 16 : 18;
           double headerFontSize = constraints.maxWidth < 600 ? 22 : 24;
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Dart/Flutter Short Explanation
+                // Introduction to Variables
                 Text(
-                  'What is Dart and Flutter?',
+                  'Introduction to Variables',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is a modern programming language developed by Google, optimized for building mobile, desktop, and web applications. It is the primary language used in the Flutter framework.',
+                  'Variables in Dart are used to store data. Dart is statically typed, so each variable has a type. '
+                      'You can use either explicitly typed or type-inferred variables in Dart.',
                   style: TextStyle(fontSize: fontSize),
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  'Flutter is an open-source UI framework also created by Google, allowing developers to create beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 16),
 
-                // Hello World
+                // Declaring Variables
+                const SizedBox(height: 16),
                 Text(
-                  'Hello World',
+                  'Declaring Variables',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'The starting point for any Dart program is the main function.',
+                  'To declare a variable, you can specify its type explicitly or let Dart infer the type using the `var` keyword.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -52,123 +54,27 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void helloWorld() {
-  print('Hello, World!');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Variables
-                const SizedBox(height: 16),
-                Text(
-                  'Variables',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Variables in Dart store data, and the type of data can be inferred or explicitly declared.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void variablesExample() {
-  var name = 'Dart'; // String type
-  int year = 2024; // declared as int
-  double score = 99.9; // double type
-  bool isAlive = true; // boolean type
-  print('Name: \$name, Year: \$year,  
-  Score: \$score, Alive: \$isAlive');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Control Flow Statements
-                const SizedBox(height: 16),
-                Text(
-                  'Control Flow Statements',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart supports if-else, switch, for, while, and do-while loops.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void controlFlowExample() {
-  int number = 3;
-
-  // If-else statement
-  if (number > 0) {
-    print('Positive number');
-  } else {
-    print('Negative number');
-  }
-
-  // Switch-case statement
-  switch (number) {
-    case 1:
-      print('One');
-      break;
-    case 2:
-      print('Two');
-      break;
-    default:
-      print('Other number');
-  }
-
-  // Loops
-  for (int i = 0; i < 5; i++) {
-    print('Loop iteration \$i');
-  }
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Functions
-                const SizedBox(height: 16),
-                Text(
-                  'Functions',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart functions are objects and can be passed as arguments or returned from other functions.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''String greet(String name) {
-  return 'Hello, \$name!';
+                    '''void variableDeclaration() {
+  int age = 25; // Explicitly typed integer
+  var name = 'Alice'; // Dart infers that 'name' is a String
+  print('Name: \$name, Age: \$age');
 }
-
-print(greet('Sizan')); 
-// Output: Hello, Sizan!''',
+// Output:
+// Name: Alice, Age: 25''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Classes
+                // Mutable and Immutable Variables
                 const SizedBox(height: 16),
                 Text(
-                  'Classes',
+                  'Mutable and Immutable Variables',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is an object-oriented language, and classes are a core concept.',
+                  'In Dart, `var` and `dynamic` variables are mutable (modifiable), while `final` and `const` variables are immutable (cannot be modified once set). '
+                      'Use `final` when the value is set once but may be computed at runtime, and `const` for compile-time constants.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -176,33 +82,28 @@ print(greet('Sizan'));
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''class Person {
-  String name;
-  int age;
-
-  Person(this.name, this.age);
-
-  void introduce() {
-    print('Hello, my name is \$name and I am \$age years old.');
-  }
+                    '''void immutabilityExample() {
+  final String city = 'New York'; // Immutable, assigned at runtime
+  const double pi = 3.14159; // Constant, assigned at compile-time
+  
+  print('City: \$city, Pi: \$pi');
+  // city = 'Los Angeles'; // Error: 'final' variable can't be reassigned
 }
-
-var person = Person('Asura', 21);
-person.introduce(); 
-// Output: Hello, my name is Asura and I am 23 years old.''',
+// Output:
+// City: New York, Pi: 3.14159''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Async and Await
+                // Variable Types
                 const SizedBox(height: 16),
                 Text(
-                  'Async and Await',
+                  'Variable Types',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart supports async and await for asynchronous operations.',
+                  'Dart supports several basic variable types: `int`, `double`, `String`, `bool`, `List`, and `Map`.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -210,24 +111,30 @@ person.introduce();
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''Future<void> fetchData() async {
-  print('Fetching data...');
-  await Future.delayed(Duration(seconds: 2));
-  print('Data fetched!');
-}''',
+                    '''void variableTypes() {
+  int count = 10;
+  double price = 99.99;
+  String product = 'Laptop';
+  bool isAvailable = true;
+
+  print('Count: \$count, Price: \$price, Product: \$product, Available: \$isAvailable');
+}
+// Output:
+// Count: 10, Price: 99.99, Product: Laptop, Available: true''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Exceptions
+                // Dynamic Type
                 const SizedBox(height: 16),
                 Text(
-                  'Exceptions',
+                  'Dynamic Type',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart allows for handling errors using try-catch.',
+                  'The `dynamic` type allows a variable to hold values of any type, but should be used sparingly. '
+                      'It’s useful when the type isn’t known until runtime, but it bypasses type checking.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -235,14 +142,101 @@ person.introduce();
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void exceptionExample() {
-  try {
-    int result = 10 ~/ 0; // Integer division by zero
-    print(result);
-  } catch (e) {
-    print('Caught an exception: \$e');
-  }
-}''',
+                    '''void dynamicTypeExample() {
+  dynamic value = 'Hello';
+  print('Value: \$value');
+  
+  value = 123; // No error, 'value' now holds an integer
+  print('New Value: \$value');
+}
+// Output:
+// Value: Hello
+// New Value: 123''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Null Safety
+                const SizedBox(height: 16),
+                Text(
+                  'Null Safety',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Dart’s null safety feature helps prevent null reference errors. Variables cannot be null unless specified with a nullable type (`?`).',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void nullSafetyExample() {
+  String? nullableName; // Nullable, can hold null
+  nullableName = 'John';
+  
+  print('Nullable Name: \$nullableName');
+}
+// Output:
+// Nullable Name: John''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Late Initialization
+                const SizedBox(height: 16),
+                Text(
+                  'Late Initialization',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The `late` keyword defers the initialization of a variable until it’s accessed. '
+                      'It’s useful when you need to initialize a variable that requires additional setup.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''late String description;
+
+void initializeLateVariable() {
+  description = 'This is a late-initialized variable.';
+  print(description);
+}
+// Output:
+// This is a late-initialized variable.''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Constants in Collections
+                const SizedBox(height: 16),
+                Text(
+                  'Constants in Collections',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The `const` keyword can also make entire collections immutable, meaning the collection and its items cannot be modified.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void constCollectionExample() {
+  const List<String> colors = ['Red', 'Green', 'Blue'];
+  
+  print(colors);
+  // colors.add('Yellow'); // Error: Cannot modify a const list
+}
+// Output:
+// [Red, Green, Blue]''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),

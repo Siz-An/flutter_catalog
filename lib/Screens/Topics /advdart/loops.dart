@@ -1,50 +1,35 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../Customs/appbar.dart';
+import '../../../Customs/appbar.dart'; // Assuming you have a custom app bar in your project
 
-class BasicOfDart extends StatelessWidget {
-  const BasicOfDart({super.key});
+class loops extends StatelessWidget {
+  const loops({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Dart Basics Introduction',
+        title: 'Dart Loops Tutorial',
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double fontSize = constraints.maxWidth < 600 ? 16 : 18;
           double headerFontSize = constraints.maxWidth < 600 ? 22 : 24;
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Dart/Flutter Short Explanation
+                // For Loop
                 Text(
-                  'What is Dart and Flutter?',
+                  'For Loop',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is a modern programming language developed by Google, optimized for building mobile, desktop, and web applications. It is the primary language used in the Flutter framework.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Flutter is an open-source UI framework also created by Google, allowing developers to create beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 16),
-
-                // Hello World
-                Text(
-                  'Hello World',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'The starting point for any Dart program is the main function.',
+                  'The `for` loop is ideal when you know exactly how many times you need to repeat an action. '
+                      'It consists of an initializer, a condition, and an increment or decrement statement. '
+                      'It is commonly used to iterate over ranges of numbers.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -52,97 +37,31 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void helloWorld() {
-  print('Hello, World!');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Variables
-                const SizedBox(height: 16),
-                Text(
-                  'Variables',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Variables in Dart store data, and the type of data can be inferred or explicitly declared.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void variablesExample() {
-  var name = 'Dart'; // String type
-  int year = 2024; // declared as int
-  double score = 99.9; // double type
-  bool isAlive = true; // boolean type
-  print('Name: \$name, Year: \$year,  
-  Score: \$score, Alive: \$isAlive');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Control Flow Statements
-                const SizedBox(height: 16),
-                Text(
-                  'Control Flow Statements',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart supports if-else, switch, for, while, and do-while loops.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void controlFlowExample() {
-  int number = 3;
-
-  // If-else statement
-  if (number > 0) {
-    print('Positive number');
-  } else {
-    print('Negative number');
-  }
-
-  // Switch-case statement
-  switch (number) {
-    case 1:
-      print('One');
-      break;
-    case 2:
-      print('Two');
-      break;
-    default:
-      print('Other number');
-  }
-
-  // Loops
+                    '''void forLoopExample() {
   for (int i = 0; i < 5; i++) {
-    print('Loop iteration \$i');
+    print('Iteration \$i');
   }
+  // Output:
+  // Iteration 0
+  // Iteration 1
+  // Iteration 2
+  // Iteration 3
+  // Iteration 4
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Functions
+                // For...in Loop
                 const SizedBox(height: 16),
                 Text(
-                  'Functions',
+                  'For...in Loop',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart functions are objects and can be passed as arguments or returned from other functions.',
+                  'The `for...in` loop iterates over each element in a collection, such as a list or set. '
+                      'It’s simpler than using a traditional `for` loop for collections because it doesn’t need an index.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -150,84 +69,30 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''String greet(String name) {
-  return 'Hello, \$name!';
-}
-
-print(greet('Sizan')); 
-// Output: Hello, Sizan!''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Classes
-                const SizedBox(height: 16),
-                Text(
-                  'Classes',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart is an object-oriented language, and classes are a core concept.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''class Person {
-  String name;
-  int age;
-
-  Person(this.name, this.age);
-
-  void introduce() {
-    print('Hello, my name is \$name and I am \$age years old.');
+                    '''void forInLoopExample() {
+  List<String> fruits = ['Apple', 'Banana', 'Cherry'];
+  for (var fruit in fruits) {
+    print(fruit);
   }
-}
-
-var person = Person('Asura', 21);
-person.introduce(); 
-// Output: Hello, my name is Asura and I am 23 years old.''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Async and Await
-                const SizedBox(height: 16),
-                Text(
-                  'Async and Await',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart supports async and await for asynchronous operations.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''Future<void> fetchData() async {
-  print('Fetching data...');
-  await Future.delayed(Duration(seconds: 2));
-  print('Data fetched!');
+  // Output:
+  // Apple
+  // Banana
+  // Cherry
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Exceptions
+                // While Loop
                 const SizedBox(height: 16),
                 Text(
-                  'Exceptions',
+                  'While Loop',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart allows for handling errors using try-catch.',
+                  'The `while` loop executes as long as a condition remains true. '
+                      'It is particularly useful when the number of iterations is unknown or dependent on a dynamic condition.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -235,13 +100,155 @@ person.introduce();
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void exceptionExample() {
-  try {
-    int result = 10 ~/ 0; // Integer division by zero
-    print(result);
-  } catch (e) {
-    print('Caught an exception: \$e');
+                    '''void whileLoopExample() {
+  int count = 0;
+  while (count < 5) {
+    print('Count is \$count');
+    count++;
   }
+  // Output:
+  // Count is 0
+  // Count is 1
+  // Count is 2
+  // Count is 3
+  // Count is 4
+}''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Do...while Loop
+                const SizedBox(height: 16),
+                Text(
+                  'Do...while Loop',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The `do...while` loop is similar to the `while` loop, but it executes at least once, even if the condition is initially false.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void doWhileLoopExample() {
+  int count = 0;
+  do {
+    print('Count is \$count');
+    count++;
+  } while (count < 5);
+  // Output:
+  // Count is 0
+  // Count is 1
+  // Count is 2
+  // Count is 3
+  // Count is 4
+}''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // ForEach Loop
+                const SizedBox(height: 16),
+                Text(
+                  'ForEach Loop',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The `forEach` loop is a function applied to collections. It accepts a function that it applies to each element of the collection.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void forEachLoopExample() {
+  List<int> numbers = [1, 2, 3, 4];
+  numbers.forEach((number) {
+    print(number);
+  });
+  // Output:
+  // 1
+  // 2
+  // 3
+  // 4
+}''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Break and Continue
+                const SizedBox(height: 16),
+                Text(
+                  'Break and Continue',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '`break` exits a loop entirely, while `continue` skips to the next iteration of the loop.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void breakAndContinueExample() {
+  for (int i = 0; i < 5; i++) {
+    if (i == 3) break; // Exits the loop when i is 3
+    print('i: \$i');
+  }
+
+  for (int j = 0; j < 5; j++) {
+    if (j == 2) continue; // Skips when j is 2
+    print('j: \$j');
+  }
+  // Output for break:
+  // i: 0
+  // i: 1
+  // i: 2
+
+  // Output for continue:
+  // j: 0
+  // j: 1
+  // j: 3
+  // j: 4
+}''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Await For Loop
+                const SizedBox(height: 16),
+                Text(
+                  'Await For Loop (Async)',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The `await for` loop is used to process asynchronous streams, waiting for each element to be available.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''Future<void> awaitForLoopExample() async {
+  Stream<int> numberStream = Stream.periodic(Duration(seconds: 1), (count) => count).take(5);
+  await for (var number in numberStream) {
+    print('Number: \$number');
+  }
+  // Output (one per second):
+  // Number: 0
+  // Number: 1
+  // Number: 2
+  // Number: 3
+  // Number: 4
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),

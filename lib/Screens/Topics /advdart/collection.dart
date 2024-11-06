@@ -1,50 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../Customs/appbar.dart';
 
-class BasicOfDart extends StatelessWidget {
-  const BasicOfDart({super.key});
+class collection extends StatelessWidget {
+  const collection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Dart Basics Introduction',
+        title: 'Dart Collections Tutorial',
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double fontSize = constraints.maxWidth < 600 ? 16 : 18;
           double headerFontSize = constraints.maxWidth < 600 ? 22 : 24;
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Dart/Flutter Short Explanation
+                // Lists
                 Text(
-                  'What is Dart and Flutter?',
+                  'Lists',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is a modern programming language developed by Google, optimized for building mobile, desktop, and web applications. It is the primary language used in the Flutter framework.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Flutter is an open-source UI framework also created by Google, allowing developers to create beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 16),
-
-                // Hello World
-                Text(
-                  'Hello World',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'The starting point for any Dart program is the main function.',
+                  'Lists in Dart are ordered collections of elements. Each item in a list is indexed and can be accessed by its position in the list. Lists allow duplicates and are versatile for many data manipulation tasks.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -52,22 +35,26 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void helloWorld() {
-  print('Hello, World!');
+                    '''void listExample() {
+  List<String> fruits = ['Apple', 'Banana', 'Cherry'];
+  fruits.add('Date'); // Add an item to the list
+  fruits.insert(1, 'Mango'); // Insert an item at a specific index
+  print(fruits);
+  // Output: [Apple, Mango, Banana, Cherry, Date]
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Variables
+                // Sets
                 const SizedBox(height: 16),
                 Text(
-                  'Variables',
+                  'Sets',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Variables in Dart store data, and the type of data can be inferred or explicitly declared.',
+                  'Sets are unordered collections of unique items. They are useful when you need to store data and ensure no duplicates. Sets are faster than lists for checking whether an item is contained within them.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -75,27 +62,29 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void variablesExample() {
-  var name = 'Dart'; // String type
-  int year = 2024; // declared as int
-  double score = 99.9; // double type
-  bool isAlive = true; // boolean type
-  print('Name: \$name, Year: \$year,  
-  Score: \$score, Alive: \$isAlive');
+                    '''void setExample() {
+  Set<int> uniqueNumbers = {1, 2, 3, 4};
+  uniqueNumbers.add(4); // Duplicate will not be added
+  print(uniqueNumbers);
+  // Output: {1, 2, 3, 4}
+  
+  uniqueNumbers.add(5); // Adding a new unique item
+  print(uniqueNumbers);
+  // Output: {1, 2, 3, 4, 5}
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Control Flow Statements
+                // Maps
                 const SizedBox(height: 16),
                 Text(
-                  'Control Flow Statements',
+                  'Maps',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart supports if-else, switch, for, while, and do-while loops.',
+                  'Maps in Dart are collections of key-value pairs, where each key is unique. This structure is great for quick lookups where you need to map a specific key to a value.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -103,46 +92,37 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void controlFlowExample() {
-  int number = 3;
-
-  // If-else statement
-  if (number > 0) {
-    print('Positive number');
-  } else {
-    print('Negative number');
-  }
-
-  // Switch-case statement
-  switch (number) {
-    case 1:
-      print('One');
-      break;
-    case 2:
-      print('Two');
-      break;
-    default:
-      print('Other number');
-  }
-
-  // Loops
-  for (int i = 0; i < 5; i++) {
-    print('Loop iteration \$i');
-  }
+                    '''void mapExample() {
+  Map<String, int> fruitPrices = {
+    'Apple': 2,
+    'Banana': 1,
+    'Cherry': 3
+  };
+  print(fruitPrices['Apple']); // Output: 2
+  
+  // Add new key-value pair
+  fruitPrices['Orange'] = 4;
+  print(fruitPrices);
+  // Output: {Apple: 2, Banana: 1, Cherry: 3, Orange: 4}
+  
+  // Remove key-value pair
+  fruitPrices.remove('Banana');
+  print(fruitPrices);
+  // Output: {Apple: 2, Cherry: 3, Orange: 4}
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Functions
+                // Collection If
                 const SizedBox(height: 16),
                 Text(
-                  'Functions',
+                  'Collection If',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart functions are objects and can be passed as arguments or returned from other functions.',
+                  'The collection if statement allows you to conditionally add elements to a collection based on some condition. This is useful when building dynamic lists.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -150,84 +130,29 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''String greet(String name) {
-  return 'Hello, \$name!';
-}
-
-print(greet('Sizan')); 
-// Output: Hello, Sizan!''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Classes
-                const SizedBox(height: 16),
-                Text(
-                  'Classes',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart is an object-oriented language, and classes are a core concept.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''class Person {
-  String name;
-  int age;
-
-  Person(this.name, this.age);
-
-  void introduce() {
-    print('Hello, my name is \$name and I am \$age years old.');
-  }
-}
-
-var person = Person('Asura', 21);
-person.introduce(); 
-// Output: Hello, my name is Asura and I am 23 years old.''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Async and Await
-                const SizedBox(height: 16),
-                Text(
-                  'Async and Await',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart supports async and await for asynchronous operations.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''Future<void> fetchData() async {
-  print('Fetching data...');
-  await Future.delayed(Duration(seconds: 2));
-  print('Data fetched!');
+                    '''void collectionIfExample(bool addBanana) {
+  var fruits = [
+    'Apple',
+    if (addBanana) 'Banana', // Conditionally add Banana
+    'Cherry',
+  ];
+  print(fruits);
+  // Output when addBanana is true: [Apple, Banana, Cherry]
+  // Output when addBanana is false: [Apple, Cherry]
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Exceptions
+                // Collection For
                 const SizedBox(height: 16),
                 Text(
-                  'Exceptions',
+                  'Collection For',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart allows for handling errors using try-catch.',
+                  'The collection for allows you to iterate over an existing collection and add elements to a new collection. This is helpful for transforming data.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -235,16 +160,73 @@ person.introduce();
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void exceptionExample() {
-  try {
-    int result = 10 ~/ 0; // Integer division by zero
-    print(result);
-  } catch (e) {
-    print('Caught an exception: \$e');
-  }
+                    '''void collectionForExample() {
+  var numbers = [1, 2, 3];
+  var doubledNumbers = [
+    for (var number in numbers) number * 2 // Double each number
+  ];
+  print(doubledNumbers); 
+  // Output: [2, 4, 6]
+  
+  // Adding conditional transformation
+  var evenNumbers = [
+    for (var number in numbers) if (number.isEven) number
+  ];
+  print(evenNumbers); 
+  // Output: [2]
 }''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
+                ),
+
+                // Nested Collections Example
+                const SizedBox(height: 16),
+                Text(
+                  'Nested Collections',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'You can also nest collections within each other, such as lists within maps or sets within lists. This allows for more complex data structures.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void nestedCollectionExample() {
+  Map<String, List<String>> fruitCategories = {
+    'Citrus': ['Orange', 'Lemon'],
+    'Berries': ['Strawberry', 'Blueberry'],
+  };
+  
+  // Accessing a nested list inside a map
+  print(fruitCategories['Citrus']); // Output: [Orange, Lemon]
+  
+  // Adding to a nested list
+  fruitCategories['Citrus']?.add('Grapefruit');
+  print(fruitCategories['Citrus']); // Output: [Orange, Lemon, Grapefruit]
+}''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Performance Considerations
+                const SizedBox(height: 16),
+                Text(
+                  'Performance Considerations',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'While working with collections, it’s important to consider their performance. Lists are good when you need order, sets are better for uniqueness, and maps are ideal for fast key-value lookups.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'In general, use the right collection type for your specific needs, as choosing the wrong one can result in slower performance or unnecessary complexity.',
+                  style: TextStyle(fontSize: fontSize),
                 ),
               ],
             ),

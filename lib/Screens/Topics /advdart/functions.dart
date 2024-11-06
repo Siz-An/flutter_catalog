@@ -1,50 +1,37 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../Customs/appbar.dart';
+import '../installFlutter/codessnippet/codeDisplayWindows.dart';
 
-class BasicOfDart extends StatelessWidget {
-  const BasicOfDart({super.key});
+class functions extends StatelessWidget {
+  const functions({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Dart Basics Introduction',
+        title: 'Dart Functions Tutorial',
+        
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double fontSize = constraints.maxWidth < 600 ? 16 : 18;
           double headerFontSize = constraints.maxWidth < 600 ? 22 : 24;
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Dart/Flutter Short Explanation
+                // Function Basics
                 Text(
-                  'What is Dart and Flutter?',
+                  'Function Basics',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is a modern programming language developed by Google, optimized for building mobile, desktop, and web applications. It is the primary language used in the Flutter framework.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Flutter is an open-source UI framework also created by Google, allowing developers to create beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 16),
-
-                // Hello World
-                Text(
-                  'Hello World',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'The starting point for any Dart program is the main function.',
+                  'Functions in Dart are blocks of reusable code that can be called to perform specific tasks. '
+                      'They help organize code and reduce redundancy.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -52,123 +39,26 @@ class BasicOfDart extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void helloWorld() {
-  print('Hello, World!');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Variables
-                const SizedBox(height: 16),
-                Text(
-                  'Variables',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Variables in Dart store data, and the type of data can be inferred or explicitly declared.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void variablesExample() {
-  var name = 'Dart'; // String type
-  int year = 2024; // declared as int
-  double score = 99.9; // double type
-  bool isAlive = true; // boolean type
-  print('Name: \$name, Year: \$year,  
-  Score: \$score, Alive: \$isAlive');
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Control Flow Statements
-                const SizedBox(height: 16),
-                Text(
-                  'Control Flow Statements',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart supports if-else, switch, for, while, and do-while loops.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''void controlFlowExample() {
-  int number = 3;
-
-  // If-else statement
-  if (number > 0) {
-    print('Positive number');
-  } else {
-    print('Negative number');
-  }
-
-  // Switch-case statement
-  switch (number) {
-    case 1:
-      print('One');
-      break;
-    case 2:
-      print('Two');
-      break;
-    default:
-      print('Other number');
-  }
-
-  // Loops
-  for (int i = 0; i < 5; i++) {
-    print('Loop iteration \$i');
-  }
-}''',
-                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
-                  ),
-                ),
-
-                // Functions
-                const SizedBox(height: 16),
-                Text(
-                  'Functions',
-                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Dart functions are objects and can be passed as arguments or returned from other functions.',
-                  style: TextStyle(fontSize: fontSize),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.grey[200],
-                  child: Text(
-                    '''String greet(String name) {
-  return 'Hello, \$name!';
+                    '''// Basic function that adds two numbers
+int add(int a, int b) {
+  return a + b;
 }
-
-print(greet('Sizan')); 
-// Output: Hello, Sizan!''',
+// Usage
+print(add(3, 4)); // Output: 7''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Classes
+                // Named Parameters
                 const SizedBox(height: 16),
                 Text(
-                  'Classes',
+                  'Named Parameters',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart is an object-oriented language, and classes are a core concept.',
+                  'Named parameters allow you to specify arguments by name when calling a function. '
+                      'They’re wrapped in curly braces `{}` and can be made optional or required.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -176,33 +66,134 @@ print(greet('Sizan'));
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''class Person {
-  String name;
-  int age;
-
-  Person(this.name, this.age);
-
-  void introduce() {
-    print('Hello, my name is \$name and I am \$age years old.');
-  }
+                    '''void greet({required String name, int age = 18}) {
+  print('Hello, \$name! Age: \$age');
 }
-
-var person = Person('Asura', 21);
-person.introduce(); 
-// Output: Hello, my name is Asura and I am 23 years old.''',
+// Usage
+greet(name: 'Alice'); // Output: Hello, Alice! Age: 18
+greet(name: 'Bob', age: 25); // Output: Hello, Bob! Age: 25''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Async and Await
+                // Positional Parameters
                 const SizedBox(height: 16),
                 Text(
-                  'Async and Await',
+                  'Positional Parameters',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart supports async and await for asynchronous operations.',
+                  'Positional parameters are passed in the order defined in the function signature. '
+                      'You can make them optional by wrapping them in square brackets `[]`.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void describe(String name, [String? job = 'Student']) {
+  print('\$name is a \$job');
+}
+// Usage
+describe('Alice'); // Output: Alice is a Student
+describe('Bob', 'Developer'); // Output: Bob is a Developer''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Arrow Functions
+                const SizedBox(height: 16),
+                Text(
+                  'Arrow Functions',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Arrow functions provide a shorter syntax for functions with a single expression. '
+                      'They’re defined using `=>` and are useful for concise function definitions.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''int multiply(int a, int b) => a * b;
+// Usage
+print(multiply(3, 4)); // Output: 12''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Anonymous Functions
+                const SizedBox(height: 16),
+                Text(
+                  'Anonymous Functions (Lambdas)',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Anonymous functions, also called lambdas, are functions without names. '
+                      'They’re often used for short-term tasks like callbacks or iterating over collections.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''List<int> numbers = [1, 2, 3];
+numbers.forEach((number) {
+  print(number * 2);
+});
+// Output:
+// 2
+// 4
+// 6''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Higher-Order Functions
+                const SizedBox(height: 16),
+                Text(
+                  'Higher-Order Functions',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'A higher-order function is a function that takes other functions as parameters or returns a function as its result. '
+                      'This is particularly useful in functional programming and allows for powerful abstractions.',
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.grey[200],
+                  child: Text(
+                    '''void applyFunction(int a, int b, int Function(int, int) operation) {
+  print('Result: \${operation(a, b)}');
+}
+// Usage with an anonymous function
+applyFunction(5, 3, (x, y) => x + y); // Output: Result: 8
+// Usage with a named function
+applyFunction(5, 3, multiply); // Output using previously defined multiply function: Result: 15''',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
+                  ),
+                ),
+
+                // Async Functions
+                const SizedBox(height: 16),
+                Text(
+                  'Async and Await Functions',
+                  style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Dart supports asynchronous programming with `async` and `await`. '
+                      'Async functions allow you to perform asynchronous operations without blocking the main thread.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -213,21 +204,27 @@ person.introduce();
                     '''Future<void> fetchData() async {
   print('Fetching data...');
   await Future.delayed(Duration(seconds: 2));
-  print('Data fetched!');
-}''',
+  print('Data fetched');
+}
+// Usage
+fetchData();
+// Output:
+// Fetching data...
+// (after 2 seconds)
+// Data fetched''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),
 
-                // Exceptions
+                // Recursive Functions
                 const SizedBox(height: 16),
                 Text(
-                  'Exceptions',
+                  'Recursive Functions',
                   style: TextStyle(fontSize: headerFontSize, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Dart allows for handling errors using try-catch.',
+                  'A recursive function is one that calls itself. Recursion is often used to solve problems that can be divided into sub-problems of the same type, such as calculating factorials or traversing trees.',
                   style: TextStyle(fontSize: fontSize),
                 ),
                 const SizedBox(height: 8),
@@ -235,14 +232,12 @@ person.introduce();
                   padding: const EdgeInsets.all(8),
                   color: Colors.grey[200],
                   child: Text(
-                    '''void exceptionExample() {
-  try {
-    int result = 10 ~/ 0; // Integer division by zero
-    print(result);
-  } catch (e) {
-    print('Caught an exception: \$e');
-  }
-}''',
+                    '''int factorial(int n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}
+// Usage
+print(factorial(5)); // Output: 120''',
                     style: TextStyle(fontFamily: 'monospace', fontSize: fontSize),
                   ),
                 ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 
 import '../Screens/navbar_Pages/HomePage.dart';
-import '../Screens/navbar_Pages/explore.dart';
-import '../Screens/navbar_Pages/fav.dart';
+import '../Screens/navbar_Pages/explore/explore.dart';
+import '../Screens/navbar_Pages/bot/fav.dart';
 
 class FlutterCatalogApp extends StatelessWidget {
   @override

@@ -4,19 +4,21 @@ import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/androidstudio.dart';
 import '../../../../Customs/appbar.dart';
 
-class CodePreviewPage extends StatelessWidget {
+class TextPreviewPage extends StatelessWidget {
   final String codeSnippet = '''import 'package:flutter/material.dart';
 
-class IconExample extends StatelessWidget {
-  const IconExample({super.key});
+class TextExample extends StatelessWidget {
+  const TextExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Icon(
-        Icons.image,
-        size: 64.0,
-        color: Theme.of(context).primaryColor,
+      child: Text(
+        'Hello, Flutter!',
+        style: TextStyle(
+          fontSize: 24.0,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }
@@ -37,7 +39,7 @@ class IconExample extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: CustomAppBar(
-          title: 'Icon Preview & Code',
+          title: 'Text Preview & Code',
         ),
         body: Column(
           children: [
@@ -58,10 +60,12 @@ class IconExample extends StatelessWidget {
                 children: [
                   // Preview Page
                   Center(
-                    child: Icon(
-                      Icons.image,
-                      size: 120.0,
-                      color: Theme.of(context).primaryColor,
+                    child: Text(
+                      'Hello, Flutter!',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   // Code Page with Syntax Highlighting and Copy Button

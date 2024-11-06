@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/Screens/HomeCategory/widgets/stateful.dart';
+import 'package:flutter_catalog/Screens/HomeCategory/widgets/stateless/text.dart';
 import 'package:get/get.dart';
 import '../../../../../Customs/appbar.dart';
 import '../../../Topics /topicCard.dart';
@@ -39,11 +39,15 @@ class stless extends StatelessWidget {
                 children: [
                   TopicCard(
                     title: '1. Texts',
-                    onTap: () => Get.to(() => statful()), // Navigate to Introduction Page
+                    onTap: () => Get.to(() => TextPreviewPage()), // Navigate to Introduction Page
                   ),
                   TopicCard(
                     title: '2. Icons',
-                    onTap: () => Get.to(() => CodeAndOutputPage()), // Navigate to Introduction Page
+                    onTap: () => Get.to(() => CodePreviewPage()), // Navigate to Introduction Page
+                  ),
+                  TopicCard(
+                    title: '3. Buttons',
+                    onTap: () => Get.to(() => CodePreviewPage()), // Navigate to Introduction Page
                   ),
 
                   // Add more topics as needed
